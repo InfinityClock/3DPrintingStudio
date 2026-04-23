@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Printing Studio | Miniworks Design Merchandise Pvt. Ltd.</title>
+  <meta name="description" content="India's premier 3D printing store. Premium printers, filaments, resins, and accessories. Professional grade. Fast shipping." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <img src="Logo/Logo.png" alt="3D Printing Studio Logo" class="logo-img" />
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#" class="nav-link active">Home</a></li>
+        <li class="has-dropdown">
+          <a href="#shop" class="nav-link">Shop <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown">
+            <div class="dropdown-grid">
+              <a href="#" class="dropdown-item">
+                <span class="di-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <span class="di-text"><strong>3D Printers</strong><small>FDM, SLA, MSLA</small></span>
+              </a>
+              <a href="#" class="dropdown-item">
+                <span class="di-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
+                <span class="di-text"><strong>Filaments</strong><small>PLA, ABS, PETG, TPU</small></span>
+              </a>
+              <a href="#" class="dropdown-item">
+                <span class="di-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 2v7.31M14 9.3V1.99M12 16.5V22M3 10h18a1 1 0 011 1v2a7 7 0 01-7 7h-4a7 7 0 01-7-7v-2a1 1 0 011-1z"/></svg></span>
+                <span class="di-text"><strong>Resins</strong><small>Standard, Tough, ABS-Like</small></span>
+              </a>
+              <a href="#" class="dropdown-item">
+                <span class="di-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></span>
+                <span class="di-text"><strong>Accessories</strong><small>Nozzles, Beds, Tools</small></span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li><a href="#collections" class="nav-link">Collections</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="nav-action-btn" id="searchToggle" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="nav-action-btn" aria-label="Wishlist">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </button>
+        <button class="nav-action-btn cart-btn" id="cartToggle" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-badge">3</span>
+        </button>
+        <a href="#" class="btn-nav-cta">Account</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-overlay" id="searchOverlay">
+      <div class="search-container">
+        <input type="text" placeholder="Search printers, filaments, resins..." class="search-input" id="searchInput" />
+        <button class="search-close" id="searchClose">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="search-suggestions">
+        <span class="suggestion-tag">Bambu Lab Printers</span>
+        <span class="suggestion-tag">PLA Filament 1kg</span>
+        <span class="suggestion-tag">Resin 4K</span>
+        <span class="suggestion-tag">Nozzle Kit</span>
+        <span class="suggestion-tag">Build Plate</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-particles" id="heroParticles"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge reveal-up">
+        <span class="badge-dot"></span>
+        Premium 3D Printing Solutions
+      </div>
+      <h1 class="hero-title reveal-up">
+        Where <span class="accent-text">Precision</span><br />
+        Meets <span class="outline-text">Perfection</span>
+      </h1>
+      <p class="hero-subtitle reveal-up">
+        India's most trusted 3D printing destination. Industrial-grade printers,<br />
+        premium filaments, and professional accessories — all in one place.
+      </p>
+      <div class="hero-ctas reveal-up">
+        <a href="#shop" class="btn-primary">
+          <span>Explore Collection</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#about" class="btn-secondary">Our Story</a>
+      </div>
+      <div class="hero-stats reveal-up">
+        <div class="hero-stat">
+          <span class="stat-number" data-count="5000">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Products Sold</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-number" data-count="1200">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Happy Clients</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-number" data-count="99">0</span><span class="stat-suffix">%</span>
+          <span class="stat-label">Satisfaction Rate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="cube-scene">
+        <div class="cube-wrapper">
+          <div class="cube">
+            <div class="face face-front"></div>
+            <div class="face face-back"></div>
+            <div class="face face-left"></div>
+            <div class="face face-right"></div>
+            <div class="face face-top"></div>
+            <div class="face face-bottom"></div>
+          </div>
+        </div>
+        <div class="cube-ring ring-1"></div>
+        <div class="cube-ring ring-2"></div>
+        <div class="cube-ring ring-3"></div>
+        <div class="float-tag tag-1">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          High Precision
+        </div>
+        <div class="float-tag tag-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Ultra Fast
+        </div>
+        <div class="float-tag tag-3">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Pro Grade
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-indicator">
+        <div class="scroll-dot"></div>
+      </div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       MARQUEE STRIP
+  ═══════════════════════════════════════════════ -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span class="marquee-item">Premium 3D Printers</span>
+      <span class="marquee-dot">◆</span>
+      <span class="marquee-item">Professional Filaments</span>
+      <span class="marquee-dot">◆</span>
+      <span class="marquee-item">Industrial Resins</span>
+      <span class="marquee-dot">◆</span>
+      <span class="marquee-item">Expert Accessories</span>
+      <span class="marquee-dot">◆</span>
+      <span class="marquee-item">Free Shipping ₹5000+</span>
+      <span class="marquee-dot">◆</span>
+      <span class="marquee-item">ISO Certified Quality</span>
+      <span class="marquee-dot">◆</span>
+      <span class="marquee-item">24/7 Technical Support</span>
+      <span class="marquee-dot">◆</span>
+      <span class="marquee-item">Premium 3D Printers</span>
+      <span class="marquee-dot">◆</span>
+      <span class="marquee-item">Professional Filaments</span>
+      <span class="marquee-dot">◆</span>
+      <span class="marquee-item">Industrial Resins</span>
+      <span class="marquee-dot">◆</span>
+      <span class="marquee-item">Expert Accessories</span>
+      <span class="marquee-dot">◆</span>
+      <span class="marquee-item">Free Shipping ₹5000+</span>
+      <span class="marquee-dot">◆</span>
+      <span class="marquee-item">ISO Certified Quality</span>
+      <span class="marquee-dot">◆</span>
+      <span class="marquee-item">24/7 Technical Support</span>
+      <span class="marquee-dot">◆</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SHOP BY CATEGORY
+  ═══════════════════════════════════════════════ -->
+  <section class="categories-section" id="shop">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag reveal-up">Browse by Category</p>
+        <h2 class="section-title reveal-up">Everything You Need<br /><span class="accent-text">In One Place</span></h2>
+        <p class="section-desc reveal-up">From entry-level hobbyist setups to industrial professional machines — curated for every maker.</p>
+      </div>
+
+      <div class="categories-grid reveal-up">
+        <!-- Printers -->
+        <a href="#" class="category-card cat-printers">
+          <div class="cat-bg"></div>
+          <div class="cat-visual">
+            <svg class="cat-icon" viewBox="0 0 80 80" fill="none">
+              <rect x="15" y="35" width="50" height="30" rx="3" stroke="currentColor" stroke-width="2"/>
+              <rect x="25" y="20" width="30" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+              <line x1="15" y1="48" x2="65" y2="48" stroke="currentColor" stroke-width="2"/>
+              <rect x="30" y="55" width="20" height="5" rx="1" fill="currentColor" opacity="0.4"/>
+              <circle cx="22" cy="42" r="2" fill="currentColor"/>
+              <circle cx="58" cy="42" r="2" fill="currentColor"/>
+              <line x1="40" y1="20" x2="40" y2="8" stroke="currentColor" stroke-width="2"/>
+              <circle cx="40" cy="6" r="3" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="cat-content">
+            <h3 class="cat-name">3D Printers</h3>
+            <p class="cat-desc">FDM, SLA & MSLA technology. Professional grade machines for every workflow.</p>
+            <span class="cat-count">24 Products</span>
+            <div class="cat-arrow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </a>
+
+        <!-- Filaments -->
+        <a href="#" class="category-card cat-filaments">
+          <div class="cat-bg"></div>
+          <div class="cat-visual">
+            <svg class="cat-icon" viewBox="0 0 80 80" fill="none">
+              <circle cx="40" cy="40" r="22" stroke="currentColor" stroke-width="2"/>
+              <circle cx="40" cy="40" r="12" stroke="currentColor" stroke-width="2"/>
+              <circle cx="40" cy="40" r="4" fill="currentColor" opacity="0.5"/>
+              <path d="M40 18 Q55 25 58 40 Q55 55 40 62 Q25 55 22 40 Q25 25 40 18" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+            </svg>
+          </div>
+          <div class="cat-content">
+            <h3 class="cat-name">Filaments</h3>
+            <p class="cat-desc">PLA, PETG, ABS, TPU, and specialty materials. 50+ colors available.</p>
+            <span class="cat-count">86 Products</span>
+            <div class="cat-arrow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </a>
+
+        <!-- Resins -->
+        <a href="#" class="category-card cat-resins">
+          <div class="cat-bg"></div>
+          <div class="cat-visual">
+            <svg class="cat-icon" viewBox="0 0 80 80" fill="none">
+              <path d="M30 15 L50 15 L58 55 Q58 65 40 65 Q22 65 22 55 Z" stroke="currentColor" stroke-width="2" fill="none"/>
+              <path d="M25 35 Q40 42 55 35" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.6"/>
+              <path d="M23 45 Q40 54 57 45" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.4"/>
+              <line x1="35" y1="10" x2="45" y2="10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              <line x1="40" y1="10" x2="40" y2="15" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="cat-content">
+            <h3 class="cat-name">Resins</h3>
+            <p class="cat-desc">Standard, tough, ABS-like, and engineering resins for ultra-detail printing.</p>
+            <span class="cat-count">32 Products</span>
+            <div class="cat-arrow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </a>
+
+        <!-- Accessories -->
+        <a href="#" class="category-card cat-accessories">
+          <div class="cat-bg"></div>
+          <div class="cat-visual">
+            <svg class="cat-icon" viewBox="0 0 80 80" fill="none">
+              <circle cx="40" cy="40" r="10" stroke="currentColor" stroke-width="2"/>
+              <path d="M40 20 L40 14M40 66 L40 60M20 40 L14 40M66 40 L60 40M25.86 25.86L21.52 21.52M58.48 58.48L54.14 54.14M25.86 54.14L21.52 58.48M58.48 21.52L54.14 25.86" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="40" cy="40" r="5" fill="currentColor" opacity="0.3"/>
+            </svg>
+          </div>
+          <div class="cat-content">
+            <h3 class="cat-name">Accessories</h3>
+            <p class="cat-desc">Nozzles, build plates, enclosures, tools and everything in between.</p>
+            <span class="cat-count">118 Products</span>
+            <div class="cat-arrow">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FEATURED PRODUCTS
+  ═══════════════════════════════════════════════ -->
+  <section class="products-section" id="featured">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag reveal-up">Handpicked for You</p>
+        <h2 class="section-title reveal-up">Featured <span class="accent-text">Products</span></h2>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs reveal-up">
+        <button class="filter-tab active" data-filter="all">All Products</button>
+        <button class="filter-tab" data-filter="printers">Printers</button>
+        <button class="filter-tab" data-filter="filaments">Filaments</button>
+        <button class="filter-tab" data-filter="resins">Resins</button>
+        <button class="filter-tab" data-filter="accessories">Accessories</button>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+
+        <!-- Product 1 -->
+        <div class="product-card reveal-up" data-category="printers">
+          <div class="product-badge badge-new">New</div>
+          <div class="product-image pi-printer-1">
+            <div class="product-3d-art">
+              <svg viewBox="0 0 200 200" fill="none">
+                <rect x="30" y="90" width="140" height="80" rx="6" fill="url(#p1grad)" stroke="#FF4D00" stroke-width="1"/>
+                <rect x="60" y="50" width="80" height="45" rx="4" fill="#1A1A1A" stroke="#FF4D00" stroke-width="1"/>
+                <line x1="30" y1="120" x2="170" y2="120" stroke="#FF4D00" stroke-width="1.5" opacity="0.5"/>
+                <rect x="80" y="135" width="40" height="10" rx="2" fill="#FF4D00" opacity="0.6"/>
+                <line x1="100" y1="50" x2="100" y2="20" stroke="#FF4D00" stroke-width="1.5"/>
+                <circle cx="100" cy="16" r="6" fill="#FF4D00"/>
+                <circle cx="45" cy="105" r="4" fill="#FF4D00" opacity="0.8"/>
+                <circle cx="155" cy="105" r="4" fill="#FF4D00" opacity="0.8"/>
+                <defs>
+                  <linearGradient id="p1grad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#1A1A1A"/>
+                    <stop offset="100%" stop-color="#0A0A0A"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="product-actions">
+              <button class="pa-btn" title="Add to Wishlist"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              <button class="pa-btn" title="Quick View"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">3D Printer</span>
+              <div class="product-rating">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>4.9 (128)</span>
+              </div>
+            </div>
+            <h3 class="product-name">ProX Carbon Elite</h3>
+            <p class="product-desc">High-speed CoreXY FDM printer with 600mm/s print speed and 0.05mm precision</p>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-current">₹85,000</span>
+                <span class="price-original">₹98,000</span>
+              </div>
+              <button class="btn-add-cart">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card reveal-up" data-category="printers">
+          <div class="product-badge badge-hot">Best Seller</div>
+          <div class="product-image pi-printer-2">
+            <div class="product-3d-art">
+              <svg viewBox="0 0 200 200" fill="none">
+                <rect x="25" y="85" width="150" height="90" rx="8" fill="url(#p2grad)" stroke="#00C8FF" stroke-width="1"/>
+                <rect x="50" y="45" width="100" height="50" rx="5" fill="#0F1A2A" stroke="#00C8FF" stroke-width="1"/>
+                <line x1="25" y1="118" x2="175" y2="118" stroke="#00C8FF" stroke-width="1.5" opacity="0.5"/>
+                <rect x="75" y="130" width="50" height="12" rx="3" fill="#00C8FF" opacity="0.4"/>
+                <line x1="100" y1="45" x2="100" y2="22" stroke="#00C8FF" stroke-width="1.5"/>
+                <rect x="92" y="14" width="16" height="12" rx="2" stroke="#00C8FF" stroke-width="1"/>
+                <circle cx="40" cy="100" r="5" fill="#00C8FF" opacity="0.7"/>
+                <circle cx="160" cy="100" r="5" fill="#00C8FF" opacity="0.7"/>
+                <defs>
+                  <linearGradient id="p2grad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#0D1B2A"/>
+                    <stop offset="100%" stop-color="#060D14"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="product-actions">
+              <button class="pa-btn" title="Add to Wishlist"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              <button class="pa-btn" title="Quick View"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">3D Printer</span>
+              <div class="product-rating">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>5.0 (312)</span>
+              </div>
+            </div>
+            <h3 class="product-name">UltraCore Z1 Pro</h3>
+            <p class="product-desc">Industrial-grade enclosed printer with dual material system and 350°C hot-end</p>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-current">₹1,25,000</span>
+                <span class="price-original">₹1,45,000</span>
+              </div>
+              <button class="btn-add-cart">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card reveal-up" data-category="filaments">
+          <div class="product-badge badge-sale">-25%</div>
+          <div class="product-image pi-filament-1">
+            <div class="product-3d-art">
+              <svg viewBox="0 0 200 200" fill="none">
+                <circle cx="100" cy="100" r="60" stroke="url(#f1grad)" stroke-width="12" fill="none"/>
+                <circle cx="100" cy="100" r="35" stroke="#FF4D00" stroke-width="3" fill="none" opacity="0.4"/>
+                <circle cx="100" cy="100" r="15" fill="#1A1A1A"/>
+                <circle cx="100" cy="100" r="8" fill="#FF4D00" opacity="0.6"/>
+                <path d="M100 40 Q130 55 140 100 Q130 145 100 160 Q70 145 60 100 Q70 55 100 40" stroke="#FF4D00" stroke-width="1" stroke-dasharray="4 3" fill="none" opacity="0.5"/>
+                <defs>
+                  <linearGradient id="f1grad" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+                    <stop offset="0%" stop-color="#FF4D00"/>
+                    <stop offset="50%" stop-color="#FF8040"/>
+                    <stop offset="100%" stop-color="#FF4D00"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="product-actions">
+              <button class="pa-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              <button class="pa-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Filament</span>
+              <div class="product-rating">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>4.8 (89)</span>
+              </div>
+            </div>
+            <h3 class="product-name">PLA Premium+ 1kg</h3>
+            <p class="product-desc">Matte finish PLA with enhanced layer adhesion. Low warping, high dimensional accuracy.</p>
+            <div class="color-swatches">
+              <span class="swatch" style="background:#FF4D00" title="Orange"></span>
+              <span class="swatch" style="background:#1A1AFF" title="Blue"></span>
+              <span class="swatch" style="background:#00CC44" title="Green"></span>
+              <span class="swatch" style="background:#FFFFFF; border:1px solid #333" title="White"></span>
+              <span class="swatch" style="background:#111111; border:1px solid #333" title="Black"></span>
+              <span class="swatch swatch-more">+8</span>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-current">₹900</span>
+                <span class="price-original">₹1,200</span>
+              </div>
+              <button class="btn-add-cart">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card reveal-up" data-category="resins">
+          <div class="product-image pi-resin-1">
+            <div class="product-3d-art">
+              <svg viewBox="0 0 200 200" fill="none">
+                <path d="M70 40 L130 40 L148 145 Q148 168 100 168 Q52 168 52 145 Z" fill="url(#r1grad)" stroke="#7C3AED" stroke-width="1.5"/>
+                <path d="M58 88 Q100 102 142 88" stroke="#7C3AED" stroke-width="1.5" fill="none" opacity="0.7"/>
+                <path d="M55 110 Q100 126 145 110" stroke="#7C3AED" stroke-width="1.5" fill="none" opacity="0.5"/>
+                <path d="M54 130 Q100 148 146 130" stroke="#7C3AED" stroke-width="1.5" fill="none" opacity="0.3"/>
+                <rect x="82" y="28" width="36" height="16" rx="3" stroke="#7C3AED" stroke-width="1.5" fill="#0A0A0A"/>
+                <line x1="100" y1="28" x2="100" y2="40" stroke="#7C3AED" stroke-width="1.5"/>
+                <defs>
+                  <linearGradient id="r1grad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#1A0A2E"/>
+                    <stop offset="100%" stop-color="#0A0A14"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="product-actions">
+              <button class="pa-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              <button class="pa-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Resin</span>
+              <div class="product-rating">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>4.7 (54)</span>
+              </div>
+            </div>
+            <h3 class="product-name">ABS-Like Tough Resin 1L</h3>
+            <p class="product-desc">Excellent toughness and impact resistance. Compatible with all MSLA/LCD printers.</p>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-current">₹3,200</span>
+              </div>
+              <button class="btn-add-cart">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card reveal-up" data-category="printers">
+          <div class="product-image pi-printer-3">
+            <div class="product-3d-art">
+              <svg viewBox="0 0 200 200" fill="none">
+                <rect x="40" y="50" width="120" height="120" rx="5" fill="url(#p3grad)" stroke="#FF4D00" stroke-width="1.5"/>
+                <rect x="50" y="60" width="100" height="90" rx="3" fill="#060606" stroke="#FF4D00" stroke-width="0.5" opacity="0.8"/>
+                <rect x="65" y="75" width="70" height="2" rx="1" fill="#FF4D00" opacity="0.6"/>
+                <rect x="65" y="82" width="50" height="2" rx="1" fill="#FF4D00" opacity="0.4"/>
+                <rect x="65" y="89" width="60" height="2" rx="1" fill="#FF4D00" opacity="0.3"/>
+                <circle cx="100" cy="120" r="18" stroke="#FF4D00" stroke-width="1.5" fill="none"/>
+                <circle cx="100" cy="120" r="10" stroke="#FF4D00" stroke-width="1" fill="none" opacity="0.5"/>
+                <circle cx="100" cy="120" r="3" fill="#FF4D00"/>
+                <rect x="80" y="158" width="40" height="12" rx="2" fill="#FF4D00" opacity="0.7"/>
+                <defs>
+                  <linearGradient id="p3grad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#1A0A00"/>
+                    <stop offset="100%" stop-color="#0A0A0A"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="product-actions">
+              <button class="pa-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              <button class="pa-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Resin Printer</span>
+              <div class="product-rating">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>4.8 (76)</span>
+              </div>
+            </div>
+            <h3 class="product-name">ResinMaster Pro 12K</h3>
+            <p class="product-desc">12K mono LCD with 0.019mm XY resolution. Perfect for miniatures and jewelry.</p>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-current">₹45,000</span>
+                <span class="price-original">₹55,000</span>
+              </div>
+              <button class="btn-add-cart">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card reveal-up" data-category="accessories">
+          <div class="product-image pi-acc-1">
+            <div class="product-3d-art">
+              <svg viewBox="0 0 200 200" fill="none">
+                <rect x="30" y="130" width="140" height="40" rx="4" fill="#141414" stroke="#FF4D00" stroke-width="1"/>
+                <rect x="40" y="110" width="120" height="25" rx="3" fill="#1A1A1A" stroke="#FF4D00" stroke-width="0.8" opacity="0.7"/>
+                <circle cx="100" cy="100" r="40" fill="none" stroke="url(#a1grad)" stroke-width="2"/>
+                <circle cx="100" cy="100" r="28" fill="none" stroke="#FF4D00" stroke-width="1.5" opacity="0.5"/>
+                <circle cx="100" cy="100" r="16" fill="#0A0A0A" stroke="#FF4D00" stroke-width="1"/>
+                <line x1="100" y1="60" x2="100" y2="40" stroke="#FF4D00" stroke-width="2"/>
+                <circle cx="100" cy="37" r="4" fill="#FF4D00"/>
+                <defs>
+                  <linearGradient id="a1grad" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+                    <stop offset="0%" stop-color="#FF4D00"/>
+                    <stop offset="100%" stop-color="#FF8040"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="product-actions">
+              <button class="pa-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              <button class="pa-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Accessory</span>
+              <div class="product-rating">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>4.9 (203)</span>
+              </div>
+            </div>
+            <h3 class="product-name">Smart Filament Dryer Pro</h3>
+            <p class="product-desc">Active drying with humidity control. Supports 1-3 spools. PTC + fan heating system.</p>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-current">₹4,200</span>
+              </div>
+              <button class="btn-add-cart">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product-card reveal-up" data-category="filaments">
+          <div class="product-image pi-filament-2">
+            <div class="product-3d-art">
+              <svg viewBox="0 0 200 200" fill="none">
+                <circle cx="100" cy="100" r="58" stroke="url(#f2grad)" stroke-width="14" fill="none"/>
+                <circle cx="100" cy="100" r="32" stroke="#00C8FF" stroke-width="2.5" fill="none" opacity="0.5"/>
+                <circle cx="100" cy="100" r="12" fill="#0A141E"/>
+                <circle cx="100" cy="100" r="6" fill="#00C8FF" opacity="0.7"/>
+                <defs>
+                  <linearGradient id="f2grad" gradientUnits="userSpaceOnUse" x1="42" y1="42" x2="158" y2="158">
+                    <stop offset="0%" stop-color="#00C8FF"/>
+                    <stop offset="50%" stop-color="#0066FF"/>
+                    <stop offset="100%" stop-color="#00C8FF"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="product-actions">
+              <button class="pa-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              <button class="pa-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Filament</span>
+              <div class="product-rating">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>4.8 (145)</span>
+              </div>
+            </div>
+            <h3 class="product-name">PETG Ultra Clear 1kg</h3>
+            <p class="product-desc">Crystal-clear PETG with excellent chemical resistance. Ideal for functional parts.</p>
+            <div class="color-swatches">
+              <span class="swatch" style="background:rgba(200,255,255,0.3); border:1px solid #00C8FF" title="Clear"></span>
+              <span class="swatch" style="background:#0066FF" title="Blue"></span>
+              <span class="swatch" style="background:#222222; border:1px solid #444" title="Black"></span>
+              <span class="swatch swatch-more">+5</span>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-current">₹1,500</span>
+              </div>
+              <button class="btn-add-cart">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-card reveal-up" data-category="accessories">
+          <div class="product-badge badge-new">New</div>
+          <div class="product-image pi-acc-2">
+            <div class="product-3d-art">
+              <svg viewBox="0 0 200 200" fill="none">
+                <rect x="35" y="55" width="130" height="100" rx="6" fill="url(#a2grad)" stroke="#22C55E" stroke-width="1.5"/>
+                <rect x="50" y="68" width="100" height="74" rx="3" fill="#050A06" stroke="#22C55E" stroke-width="0.8" opacity="0.5"/>
+                <line x1="50" y1="80" x2="150" y2="80" stroke="#22C55E" stroke-width="0.5" opacity="0.3"/>
+                <line x1="50" y1="92" x2="150" y2="92" stroke="#22C55E" stroke-width="0.5" opacity="0.3"/>
+                <line x1="50" y1="104" x2="150" y2="104" stroke="#22C55E" stroke-width="0.5" opacity="0.3"/>
+                <line x1="50" y1="116" x2="150" y2="116" stroke="#22C55E" stroke-width="0.5" opacity="0.3"/>
+                <line x1="50" y1="128" x2="150" y2="128" stroke="#22C55E" stroke-width="0.5" opacity="0.3"/>
+                <line x1="75" y1="68" x2="75" y2="142" stroke="#22C55E" stroke-width="0.5" opacity="0.3"/>
+                <line x1="100" y1="68" x2="100" y2="142" stroke="#22C55E" stroke-width="0.5" opacity="0.3"/>
+                <line x1="125" y1="68" x2="125" y2="142" stroke="#22C55E" stroke-width="0.5" opacity="0.3"/>
+                <rect x="55" y="155" width="90" height="15" rx="3" fill="#22C55E" opacity="0.7"/>
+                <defs>
+                  <linearGradient id="a2grad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#071A08"/>
+                    <stop offset="100%" stop-color="#030A04"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="product-actions">
+              <button class="pa-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              <button class="pa-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Accessory</span>
+              <div class="product-rating">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>4.7 (38)</span>
+              </div>
+            </div>
+            <h3 class="product-name">Flexible PEI Spring Sheet</h3>
+            <p class="product-desc">Double-sided PEI build surface with magnetic base. Effortless part removal at room temp.</p>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-current">₹2,200</span>
+              </div>
+              <button class="btn-add-cart">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="view-all-wrap reveal-up">
+        <a href="#" class="btn-primary">
+          View All Products
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       PROMO BANNER
+  ═══════════════════════════════════════════════ -->
+  <section class="promo-banner" id="collections">
+    <div class="promo-bg">
+      <div class="promo-grid"></div>
+      <div class="promo-orb"></div>
+    </div>
+    <div class="container promo-inner">
+      <div class="promo-text">
+        <p class="section-tag">Limited Time Offer</p>
+        <h2 class="promo-title">Build Your<br /><span class="accent-text">Dream Setup</span></h2>
+        <p class="promo-desc">Get up to <strong>30% off</strong> when you bundle any printer with filaments and accessories. Professional packages starting from ₹89,000.</p>
+        <div class="promo-countdown" id="countdown">
+          <div class="countdown-item">
+            <span class="cd-num" id="cdDays">02</span>
+            <span class="cd-label">Days</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="countdown-item">
+            <span class="cd-num" id="cdHours">14</span>
+            <span class="cd-label">Hours</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="countdown-item">
+            <span class="cd-num" id="cdMins">38</span>
+            <span class="cd-label">Mins</span>
+          </div>
+          <span class="cd-sep">:</span>
+          <div class="countdown-item">
+            <span class="cd-num" id="cdSecs">00</span>
+            <span class="cd-label">Secs</span>
+          </div>
+        </div>
+        <a href="#" class="btn-primary">Shop Bundle Deals</a>
+      </div>
+      <div class="promo-visual">
+        <div class="promo-badge-wrap">
+          <div class="promo-badge-inner">
+            <span class="pb-pct">30%</span>
+            <span class="pb-off">OFF</span>
+          </div>
+        </div>
+        <div class="promo-features">
+          <div class="pf-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Free Express Shipping
+          </div>
+          <div class="pf-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            1 Year Warranty
+          </div>
+          <div class="pf-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Expert Setup Guide
+          </div>
+          <div class="pf-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Priority Support
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       ABOUT / WHY CHOOSE US
+  ═══════════════════════════════════════════════ -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal-left">
+          <div class="about-img-wrap">
+            <div class="about-art">
+              <div class="aa-cube aa-c1"></div>
+              <div class="aa-cube aa-c2"></div>
+              <div class="aa-cube aa-c3"></div>
+              <div class="aa-cube aa-c4"></div>
+              <div class="aa-center-logo">
+                <img src="Logo/Logo.png" alt="3D Printing Studio" />
+              </div>
+            </div>
+          </div>
+          <div class="about-stats-grid">
+            <div class="as-item">
+              <span class="as-num counter-val" data-count="7">0</span><span>+</span>
+              <span class="as-label">Years Experience</span>
+            </div>
+            <div class="as-item">
+              <span class="as-num counter-val" data-count="260">0</span><span>+</span>
+              <span class="as-label">Products</span>
+            </div>
+            <div class="as-item">
+              <span class="as-num counter-val" data-count="1200">0</span><span>+</span>
+              <span class="as-label">Happy Clients</span>
+            </div>
+            <div class="as-item">
+              <span class="as-num counter-val" data-count="15">0</span><span>+</span>
+              <span class="as-label">Awards Won</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-content reveal-right">
+          <p class="section-tag">Our Story</p>
+          <h2 class="section-title">Miniworks Design<br /><span class="accent-text">Merchandise Pvt. Ltd.</span></h2>
+          <p class="about-desc">Founded by passionate engineers and designers, Miniworks Design Merchandise has been at the forefront of India's 3D printing revolution since 2017. We believe that professional-grade 3D printing technology should be accessible to every creator, engineer, and entrepreneur.</p>
+          <p class="about-desc">Our curated catalog features the world's finest printers, filaments, and accessories — each tested and certified by our in-house technical team before reaching your doorstep.</p>
+          <div class="about-features">
+            <div class="af-item">
+              <div class="af-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="af-text">
+                <strong>Quality Certified</strong>
+                <span>ISO 9001:2015 certified. Every product tested before dispatch.</span>
+              </div>
+            </div>
+            <div class="af-item">
+              <div class="af-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="af-text">
+                <strong>Fast Delivery</strong>
+                <span>Same day dispatch for orders before 2 PM. Pan-India shipping.</span>
+              </div>
+            </div>
+            <div class="af-item">
+              <div class="af-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.71A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+              </div>
+              <div class="af-text">
+                <strong>Expert Support</strong>
+                <span>Dedicated technical team available 7 days a week via call & chat.</span>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="btn-primary">Learn More About Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FEATURES / TRUST SIGNALS
+  ═══════════════════════════════════════════════ -->
+  <section class="features-section">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-item reveal-up">
+          <div class="fi-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/><circle cx="12" cy="12" r="10"/></svg>
+          </div>
+          <div class="fi-content">
+            <h4>Free Shipping</h4>
+            <p>On all orders above ₹5,000. Express delivery in 24-48 hours.</p>
+          </div>
+        </div>
+        <div class="feature-item reveal-up">
+          <div class="fi-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="fi-content">
+            <h4>1 Year Warranty</h4>
+            <p>Comprehensive warranty on all printers. Free parts & service.</p>
+          </div>
+        </div>
+        <div class="feature-item reveal-up">
+          <div class="fi-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/></svg>
+          </div>
+          <div class="fi-content">
+            <h4>Easy Returns</h4>
+            <p>7-day hassle-free returns. No questions asked policy.</p>
+          </div>
+        </div>
+        <div class="feature-item reveal-up">
+          <div class="fi-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <div class="fi-content">
+            <h4>Secure Payments</h4>
+            <p>256-bit SSL encryption. UPI, cards, and net banking accepted.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       TESTIMONIALS
+  ═══════════════════════════════════════════════ -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag reveal-up">What Our Clients Say</p>
+        <h2 class="section-title reveal-up">Trusted by <span class="accent-text">Makers</span> Nationwide</h2>
+      </div>
+
+      <div class="testimonials-carousel" id="testimonialsCarousel">
+        <div class="testimonials-track" id="testimonialsTrack">
+
+          <div class="testimonial-card">
+            <div class="tc-stars">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="tc-text">"Ordered the ProX Carbon Elite and it arrived perfectly packaged the next day. Print quality is phenomenal — 0.08mm layers with zero issues. Miniworks' customer support helped me dial in settings in under an hour. Absolutely worth every rupee."</p>
+            <div class="tc-author">
+              <div class="tc-avatar ta-1">RK</div>
+              <div class="tc-info">
+                <strong>Rahul Kapoor</strong>
+                <span>Product Designer, Pune</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="tc-stars">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="tc-text">"Running a small jewellery business and the ResinMaster Pro 12K has transformed our prototyping process. Details are razor-sharp. The ABS-like resin from Miniworks prints perfectly right out of the bottle. Best store for resin printing in India."</p>
+            <div class="tc-author">
+              <div class="tc-avatar ta-2">PS</div>
+              <div class="tc-info">
+                <strong>Priya Sharma</strong>
+                <span>Jewellery Designer, Mumbai</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="tc-stars">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="tc-text">"Purchased 20 spools of their PLA Premium+ for our educational lab. Consistent quality, zero clogging issues. Miniworks gave us a bulk discount and free delivery. Their technical team even visited our college for a setup session. Outstanding service!"</p>
+            <div class="tc-author">
+              <div class="tc-avatar ta-3">AM</div>
+              <div class="tc-info">
+                <strong>Arjun Mehta</strong>
+                <span>Professor, IIT Hyderabad</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="tc-stars">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF4D00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#333"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="tc-text">"The UltraCore Z1 Pro is an absolute beast. ABS parts come out perfectly without an enclosure. The dual material system works seamlessly. Miniworks shipped it within 2 days with full unboxing video support. My go-to supplier for all 3D printing needs."</p>
+            <div class="tc-author">
+              <div class="tc-avatar ta-4">SK</div>
+              <div class="tc-info">
+                <strong>Siddharth Kumar</strong>
+                <span>Mechanical Engineer, Bangalore</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="carousel-controls">
+        <button class="carousel-btn prev-btn" id="prevBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        </button>
+        <div class="carousel-dots" id="carouselDots">
+          <span class="carousel-dot active"></span>
+          <span class="carousel-dot"></span>
+          <span class="carousel-dot"></span>
+          <span class="carousel-dot"></span>
+        </div>
+        <button class="carousel-btn next-btn" id="nextBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       NEWSLETTER
+  ═══════════════════════════════════════════════ -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-box reveal-up">
+        <div class="nl-bg"></div>
+        <div class="nl-content">
+          <div class="nl-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <h2 class="nl-title">Stay Ahead of the Curve</h2>
+          <p class="nl-desc">Get exclusive deals, early product access, and expert 3D printing tips delivered to your inbox.</p>
+          <form class="nl-form" id="nlForm">
+            <input type="email" placeholder="Enter your email address" class="nl-input" required />
+            <button type="submit" class="btn-primary">
+              Subscribe
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </form>
+          <p class="nl-fine">No spam. Unsubscribe anytime. We respect your privacy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="Logo/Logo.png" alt="3D Printing Studio" class="footer-logo" />
+          <p class="footer-tagline">India's premier destination for professional 3D printing equipment, filaments, and accessories.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.41 19.1C5.12 19.56 12 19.56 12 19.56s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-heading">Shop</h4>
+          <ul class="footer-links">
+            <li><a href="#">3D Printers</a></li>
+            <li><a href="#">Filaments</a></li>
+            <li><a href="#">Resins</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Bundle Deals</a></li>
+            <li><a href="#">New Arrivals</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-heading">Support</h4>
+          <ul class="footer-links">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping Policy</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">Warranty</a></li>
+            <li><a href="#">Track Order</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact-group">
+          <h4 class="footer-heading">Get In Touch</h4>
+          <div class="footer-contact-items">
+            <div class="fci">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Miniworks Design Merchandise Pvt. Ltd.<br/>Mumbai, Maharashtra — 400001</span>
+            </div>
+            <div class="fci">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.71A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+              <span>+91 98765 43210</span>
+            </div>
+            <div class="fci">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF4D00" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>hello@miniworksdesign.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2024 Miniworks Design Merchandise Pvt. Ltd. All rights reserved.</p>
+        <div class="footer-payment">
+          <span class="payment-label">Accepted Payments:</span>
+          <div class="payment-icons">
+            <span class="pay-icon">VISA</span>
+            <span class="pay-icon">MC</span>
+            <span class="pay-icon">UPI</span>
+            <span class="pay-icon">GPay</span>
+            <span class="pay-icon">PhonePe</span>
+            <span class="pay-icon">EMI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════
+       CART SIDEBAR
+  ═══════════════════════════════════════════════ -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Cart <span class="cart-count">(3)</span></h3>
+      <button class="cart-close-btn" id="cartClose">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-items">
+      <div class="cart-item">
+        <div class="ci-thumb ci-t1"></div>
+        <div class="ci-info">
+          <span class="ci-name">ProX Carbon Elite</span>
+          <span class="ci-meta">FDM Printer</span>
+          <div class="ci-qty-price">
+            <div class="ci-qty">
+              <button class="qty-btn">−</button>
+              <span>1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <span class="ci-price">₹85,000</span>
+          </div>
+        </div>
+        <button class="ci-remove">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>
+        </button>
+      </div>
+      <div class="cart-item">
+        <div class="ci-thumb ci-t2"></div>
+        <div class="ci-info">
+          <span class="ci-name">PLA Premium+ Black</span>
+          <span class="ci-meta">Filament · 1kg</span>
+          <div class="ci-qty-price">
+            <div class="ci-qty">
+              <button class="qty-btn">−</button>
+              <span>3</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <span class="ci-price">₹2,700</span>
+          </div>
+        </div>
+        <button class="ci-remove">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>
+        </button>
+      </div>
+      <div class="cart-item">
+        <div class="ci-thumb ci-t3"></div>
+        <div class="ci-info">
+          <span class="ci-name">Smart Filament Dryer Pro</span>
+          <span class="ci-meta">Accessory</span>
+          <div class="ci-qty-price">
+            <div class="ci-qty">
+              <button class="qty-btn">−</button>
+              <span>1</span>
+              <button class="qty-btn">+</button>
+            </div>
+            <span class="ci-price">₹4,200</span>
+          </div>
+        </div>
+        <button class="ci-remove">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span class="cart-total-price">₹91,900</span>
+      </div>
+      <p class="cart-free-ship">🎉 You qualify for free shipping!</p>
+      <button class="btn-primary cart-checkout">
+        Proceed to Checkout
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="cart-continue">Continue Shopping</button>
+    </div>
+  </div>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
