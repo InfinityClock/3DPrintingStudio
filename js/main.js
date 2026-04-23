@@ -6,6 +6,126 @@
 (function () {
   'use strict';
 
+  /* ═══════════════════════════════════════════════════
+     THEME ENGINE — Sunrise / Sunset Auto-Switching
+  ═══════════════════════════════════════════════════ */
+
+  const htmlEl = document.documentElement;
+  const STORAGE_KEY = 'mw_theme_manual';   // 'dark' | 'light' | null (auto)
+  const MUMBAI = { lat: 19.076, lng: 72.877 }; // default fallback coords
+
+  /* Astronomical sunrise/sunset (NOAA simplified algorithm) */
+  function getSunTimes(lat, lng) {
+    const D2R = Math.PI / 180;
+    const R2D = 180 / Math.PI;
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 0);
+    const dayOfYear = Math.floor((now - start) / 86400000);
+    const lngHour = lng / 15;
+
+    function calc(rising) {
+      const t = dayOfYear + ((rising ? 6 : 18) - lngHour) / 24;
+      const M = (0.9856 * t) - 3.289;
+      let L = M + (1.916 * Math.sin(M * D2R)) + (0.020 * Math.sin(2 * M * D2R)) + 282.634;
+      L = ((L % 360) + 360) % 360;
+      let RA = R2D * Math.atan(0.91764 * Math.tan(L * D2R));
+      RA = ((RA % 360) + 360) % 360;
+      const Lq = Math.floor(L / 90) * 90;
+      const RAq = Math.floor(RA / 90) * 90;
+      RA = (RA + Lq - RAq) / 15;
+      const sinDec = 0.39782 * Math.sin(L * D2R);
+      const cosDec = Math.cos(Math.asin(sinDec));
+      const cosH = (Math.cos(90.833 * D2R) - sinDec * Math.sin(lat * D2R)) / (cosDec * Math.cos(lat * D2R));
+      if (cosH > 1 || cosH < -1) return null;
+      let H = rising ? (360 - R2D * Math.acos(cosH)) : (R2D * Math.acos(cosH));
+      H /= 15;
+      const T = H + RA - (0.06571 * t) - 6.622;
+      const UT = ((T - lngHour) % 24 + 24) % 24;
+      const tz = -now.getTimezoneOffset() / 60;
+      return ((UT + tz) % 24 + 24) % 24;
+    }
+
+    const sr = calc(true);
+    const ss = calc(false);
+    if (sr === null || ss === null) return null;
+    return { sunrise: sr, sunset: ss };
+  }
+
+  function isDaytime(lat, lng) {
+    const times = getSunTimes(lat, lng);
+    if (!times) return true;
+    const now = new Date();
+    const h = now.getHours() + now.getMinutes() / 60;
+    return h >= times.sunrise && h < times.sunset;
+  }
+
+  function applyTheme(theme, animate) {
+    if (animate) {
+      htmlEl.classList.add('theme-transitioning');
+      setTimeout(() => htmlEl.classList.remove('theme-transitioning'), 500);
+    }
+    htmlEl.setAttribute('data-theme', theme);
+  }
+
+  function getAutoTheme(lat, lng) {
+    return isDaytime(lat, lng) ? 'light' : 'dark';
+  }
+
+  function initTheme(lat, lng) {
+    const manual = localStorage.getItem(STORAGE_KEY);
+    const autoBadge = document.getElementById('themeAutoBadge');
+    if (manual) {
+      applyTheme(manual, false);
+      if (autoBadge) autoBadge.classList.remove('visible');
+    } else {
+      applyTheme(getAutoTheme(lat, lng), false);
+      if (autoBadge) autoBadge.classList.add('visible');
+    }
+    setInterval(() => {
+      if (!localStorage.getItem(STORAGE_KEY)) applyTheme(getAutoTheme(lat, lng), true);
+    }, 3 * 60 * 1000);
+  }
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      pos => initTheme(pos.coords.latitude, pos.coords.longitude),
+      ()  => initTheme(MUMBAI.lat, MUMBAI.lng)
+    );
+  } else {
+    initTheme(MUMBAI.lat, MUMBAI.lng);
+  }
+
+  const themeToggleBtn = document.getElementById('themeToggle');
+  const autoBadge = document.getElementById('themeAutoBadge');
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const current = htmlEl.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      localStorage.setItem(STORAGE_KEY, next);
+      applyTheme(next, true);
+      if (autoBadge) autoBadge.classList.remove('visible');
+    });
+
+    /* Long-press 1.5s → reset to auto mode */
+    let pressTimer;
+    themeToggleBtn.addEventListener('mousedown', () => {
+      pressTimer = setTimeout(() => {
+        localStorage.removeItem(STORAGE_KEY);
+        if (autoBadge) autoBadge.classList.add('visible');
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            pos => applyTheme(getAutoTheme(pos.coords.latitude, pos.coords.longitude), true),
+            ()  => applyTheme(getAutoTheme(MUMBAI.lat, MUMBAI.lng), true)
+          );
+        } else {
+          applyTheme(getAutoTheme(MUMBAI.lat, MUMBAI.lng), true);
+        }
+      }, 1500);
+    });
+    ['mouseup','mouseleave'].forEach(e => themeToggleBtn.addEventListener(e, () => clearTimeout(pressTimer)));
+  }
+
   /* ── Custom Cursor ────────────────────────────────── */
   const cursor = document.getElementById('cursor');
   const cursorFollower = document.getElementById('cursorFollower');
