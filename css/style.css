@@ -272,20 +272,52 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   gap: 40px;
-  height: 64px;
+  height: 72px;
 }
 
 .nav-logo {
   flex-shrink: 0;
   display: flex;
   align-items: center;
+  gap: 12px;
+  text-decoration: none;
 }
 
 .logo-img {
-  height: 36px;
+  height: 48px;
   width: auto;
   filter: var(--logo-filter);
   transition: filter var(--transition);
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.logo-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding-left: 12px;
+  border-left: 1.5px solid var(--border-2);
+}
+
+.logo-name {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.logo-sub {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-3);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .nav-links {
@@ -1711,9 +1743,11 @@ ul { list-style: none; }
 }
 
 .footer-brand .logo-img {
-  height: 32px;
+  height: 42px;
   filter: invert(1);
   margin-bottom: 16px;
+  image-rendering: crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .footer-tagline {
