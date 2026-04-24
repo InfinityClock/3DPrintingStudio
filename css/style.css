@@ -1852,7 +1852,9 @@ ul { list-style: none; }
 }
 
 .footer-logo {
-  height: 44px;
+  height: 38px;
+  width: auto;
+  max-width: 160px;
   filter: invert(1);
   margin-bottom: 20px;
   display: block;
