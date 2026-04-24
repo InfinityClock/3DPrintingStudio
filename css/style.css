@@ -1509,8 +1509,8 @@ ul { list-style: none; }
 }
 
 .cc-logo-wrap-featured {
-  background: rgba(255,255,255,0.15);
-  border-color: rgba(255,255,255,0.25);
+  background: #FFFFFF;
+  border-color: rgba(255,255,255,0.6);
 }
 
 .cc-brand-logo {
@@ -1526,9 +1526,9 @@ ul { list-style: none; }
   backface-visibility: hidden;
 }
 
-/* On the sky-blue featured card, invert the black logo to white */
+/* Logo on the sky-blue featured card — no filter, white box handles contrast */
 .cc-brand-logo-invert {
-  filter: brightness(0) invert(1);
+  filter: none;
 }
 
 .cc-name {
