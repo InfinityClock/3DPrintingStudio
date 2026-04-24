@@ -1827,81 +1827,142 @@ ul { list-style: none; }
    ═══════════════════════════════════════════════════════ */
 
 .footer {
-  background: var(--text);
-  color: var(--accent-inv);
-  padding: 64px 0 0;
+  background: #0E0E0E;
+  color: #fff;
 }
 
-.footer-grid {
+/* Sky-blue accent bar at the very top of footer */
+.footer-sky-bar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--sky) 0%, var(--sky-dark) 100%);
+}
+
+/* Two-column outer layout: brand col + links grid */
+.footer-upper {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  gap: 48px;
-  padding-bottom: 48px;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
+  grid-template-columns: 280px 1fr;
+  gap: 72px;
+  padding: 60px 0 52px;
 }
 
-.footer-brand .logo-img {
-  height: 42px;
+/* Brand column */
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  height: 44px;
   filter: invert(1);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  display: block;
   image-rendering: crisp-edges;
   image-rendering: -webkit-optimize-contrast;
 }
 
 .footer-tagline {
   font-size: 13px;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.65;
-  margin-bottom: 24px;
-  max-width: 260px;
+  color: rgba(255,255,255,0.48);
+  line-height: 1.75;
+  max-width: 240px;
+  margin-bottom: 28px;
+  flex-grow: 1;
 }
 
 .footer-social {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 .social-link {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.14);
   border-radius: var(--radius);
-  color: rgba(255,255,255,0.55);
-  transition: color var(--transition), border-color var(--transition);
+  color: rgba(255,255,255,0.45);
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
 }
 
 .social-link:hover {
-  color: #fff;
-  border-color: rgba(255,255,255,0.5);
+  color: var(--sky);
+  border-color: var(--sky);
+  background: rgba(41,171,226,0.08);
+}
+
+/* 4-column links grid */
+.footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  padding-top: 4px;
 }
 
 .footer-col-title {
   font-family: var(--font-head);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #fff;
-  margin-bottom: 16px;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.09);
 }
 
 .footer-links {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 11px;
 }
 
 .footer-link {
   font-size: 13px;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.48);
   transition: color var(--transition);
 }
 
 .footer-link:hover { color: #fff; }
 
+/* Contact column items with icons */
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.48);
+  line-height: 1.5;
+}
+
+.footer-contact-item svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--sky);
+  opacity: 0.85;
+}
+
+.footer-contact-item a {
+  color: rgba(255,255,255,0.48);
+  transition: color var(--transition);
+}
+
+.footer-contact-item a:hover { color: #fff; }
+
+/* Divider above bottom bar */
+.footer-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.09);
+}
+
+/* Bottom bar */
 .footer-bottom {
   display: flex;
   justify-content: space-between;
@@ -1911,23 +1972,38 @@ ul { list-style: none; }
   flex-wrap: wrap;
 }
 
-.footer-copy,
-.footer-legal {
+.footer-copy {
   font-size: 12px;
-  color: rgba(255,255,255,0.38);
+  color: rgba(255,255,255,0.28);
 }
 
 .footer-legal {
   display: flex;
-  gap: 16px;
+  gap: 20px;
 }
 
 .footer-legal a {
-  color: rgba(255,255,255,0.38);
+  font-size: 12px;
+  color: rgba(255,255,255,0.28);
   transition: color var(--transition);
 }
 
-.footer-legal a:hover { color: rgba(255,255,255,0.7); }
+.footer-legal a:hover { color: rgba(255,255,255,0.65); }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .footer-upper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .footer-tagline { max-width: 100%; }
+  .footer-links-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+}
+
+@media (max-width: 520px) {
+  .footer-links-grid { grid-template-columns: 1fr 1fr; gap: 28px 20px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
 
 /* ═══════════════════════════════════════════════════════
    CART SIDEBAR
