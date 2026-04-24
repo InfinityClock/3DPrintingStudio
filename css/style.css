@@ -1462,7 +1462,7 @@ ul { list-style: none; }
 /* ── Logo Section (top half of card) ─────────────── */
 .cc-card-logo {
   position: relative;
-  background: var(--bg-2);
+  background: #FFFFFF;
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -1473,7 +1473,7 @@ ul { list-style: none; }
 
 .cc-card-logo-featured {
   background: #FFFFFF;
-  border-bottom-color: rgba(41,171,226,0.2);
+  border-bottom-color: var(--border);
 }
 
 .cc-brand-logo {
@@ -1505,11 +1505,6 @@ ul { list-style: none; }
   border-radius: 20px;
 }
 
-.cc-index-light {
-  color: rgba(255,255,255,0.7);
-  background: rgba(41,171,226,0.25);
-  border-color: rgba(255,255,255,0.25);
-}
 
 /* ── Card Body (content section) ─────────────────── */
 .cc-card-body {
@@ -1529,7 +1524,7 @@ ul { list-style: none; }
   margin-bottom: 8px;
 }
 
-.cc-category-light { color: rgba(255,255,255,0.75); }
+/* light variants removed — featured card is now white like the others */
 
 .cc-name {
   font-family: var(--font-head);
@@ -1541,7 +1536,6 @@ ul { list-style: none; }
   margin-bottom: 10px;
 }
 
-.cc-name-light { color: #FFFFFF; }
 
 .cc-desc {
   font-size: 13.5px;
@@ -1551,7 +1545,6 @@ ul { list-style: none; }
   flex: 1;
 }
 
-.cc-desc-light { color: rgba(255,255,255,0.8); }
 
 /* Feature list */
 .cc-features {
@@ -1581,8 +1574,6 @@ ul { list-style: none; }
   margin-top: 5px;
 }
 
-.cc-features-light li { color: rgba(255,255,255,0.85); }
-.cc-features-light li::before { background: rgba(255,255,255,0.7); }
 
 /* CTA link at bottom of card */
 .cc-cta {
@@ -1602,35 +1593,31 @@ ul { list-style: none; }
 
 .cc-cta:hover { gap: 10px; }
 
-.cc-cta-light {
-  color: #FFFFFF;
-  border-top-color: rgba(255,255,255,0.2);
-}
 
 /* ── Featured card (3D Printing Studio) ──────────── */
 .cc-card-featured {
-  background: var(--sky);
+  background: var(--bg);
   border-color: var(--sky);
-  box-shadow: 0 8px 32px rgba(41,171,226,0.25);
+  border-top-width: 3px;
+  box-shadow: 0 6px 24px rgba(41,171,226,0.15);
 }
 
 .cc-card-featured:hover {
-  border-color: var(--sky-dark);
-  box-shadow: 0 12px 40px rgba(41,171,226,0.35);
+  border-color: var(--sky);
+  box-shadow: 0 12px 40px rgba(41,171,226,0.22);
 }
 
 /* "You Are Here" label */
 .cc-you-are-here {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.9);
-  background: rgba(255,255,255,0.18);
-  border: 1px solid rgba(255,255,255,0.3);
+  color: var(--sky);
+  background: var(--sky-light);
+  border: 1px solid rgba(41,171,226,0.25);
   padding: 4px 12px;
   border-radius: 20px;
   margin-bottom: 10px;
