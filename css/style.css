@@ -1196,16 +1196,17 @@ ul { list-style: none; }
 }
 
 .founder-photo-frame {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  overflow: visible;
+  overflow: hidden;
+  background: var(--bg);
 }
 
 .fpf-inner {
   position: relative;
-  border-radius: var(--radius-md);
   overflow: hidden;
-  border: 1px solid var(--border);
   background: var(--bg-3);
   aspect-ratio: 3 / 4;
   display: flex;
@@ -1246,15 +1247,10 @@ ul { list-style: none; }
 }
 
 .founder-name-tag {
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  background: var(--bg);
-  border-top: 1px solid var(--border);
   padding: 16px 20px;
-  border-bottom-left-radius: var(--radius-md);
-  border-bottom-right-radius: var(--radius-md);
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+  flex-shrink: 0;
 }
 
 .founder-name {
@@ -1277,6 +1273,7 @@ ul { list-style: none; }
   position: absolute;
   top: 16px;
   right: 16px;
+  z-index: 2;
   background: var(--sky);
   color: var(--sky-inv);
   font-family: var(--font-head);
