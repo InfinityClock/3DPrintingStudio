@@ -1852,11 +1852,11 @@ ul { list-style: none; }
 }
 
 .footer-logo {
-  height: 38px;
-  width: auto;
-  max-width: 160px;
+  width: 180px;
+  height: auto;
   filter: invert(1);
-  margin-bottom: 20px;
+  mix-blend-mode: screen;
+  margin-bottom: 24px;
   display: block;
   image-rendering: crisp-edges;
   image-rendering: -webkit-optimize-contrast;
