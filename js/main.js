@@ -242,20 +242,7 @@
 
   document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 
-  /* ── Hero Stat Counters ────────────────────────────── */
-  const heroStatObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.querySelectorAll('.stat-number').forEach(el => {
-          const target = parseInt(el.dataset.count, 10);
-          animateCounter(el, target, 2000);
-        });
-        heroStatObs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-  const heroStats = document.querySelector('.hero-stats');
-  if (heroStats) heroStatObs.observe(heroStats);
+  /* Hero stat counters are handled by the [data-count] observer above */
 
   /* ── Product Filter Tabs ───────────────────────────── */
   const filterTabs = document.querySelectorAll('.filter-tab');
@@ -288,7 +275,7 @@
   const nextBtn = document.getElementById('nextBtn');
 
   let currentSlide = 0;
-  const cards = track ? track.querySelectorAll('.testimonial-card') : [];
+  const cards = track ? track.querySelectorAll('.tc-card') : [];
   let slidesPerView = getSlidesPerView();
   const totalSlides = cards.length;
 
@@ -448,16 +435,14 @@
   sections.forEach(s => sectionObserver.observe(s));
 
   /* ── Wishlist button toggle ────────────────────────── */
-  document.querySelectorAll('.pa-btn[title="Add to Wishlist"]').forEach(btn => {
+  /* First .pa-btn in each .product-actions group is always the heart/wishlist */
+  document.querySelectorAll('.product-actions .pa-btn:first-child').forEach(btn => {
     btn.addEventListener('click', function () {
       const svg = this.querySelector('svg');
-      if (svg.getAttribute('fill') === 'none') {
-        svg.setAttribute('fill', 'currentColor');
-        svg.setAttribute('stroke', 'currentColor');
-      } else {
-        svg.setAttribute('fill', 'none');
-        svg.setAttribute('stroke', 'currentColor');
-      }
+      if (!svg) return;
+      const isWishlisted = svg.getAttribute('fill') !== 'none';
+      svg.setAttribute('fill', isWishlisted ? 'none' : 'currentColor');
+      this.style.color = isWishlisted ? '' : 'var(--sky)';
     });
   });
 
