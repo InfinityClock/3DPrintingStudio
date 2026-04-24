@@ -126,39 +126,6 @@
     ['mouseup','mouseleave'].forEach(e => themeToggleBtn.addEventListener(e, () => clearTimeout(pressTimer)));
   }
 
-  /* ── Custom Cursor ────────────────────────────────── */
-  const cursor = document.getElementById('cursor');
-  const cursorFollower = document.getElementById('cursorFollower');
-  let mouseX = 0, mouseY = 0;
-  let followerX = 0, followerY = 0;
-
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursor.style.left = mouseX + 'px';
-    cursor.style.top  = mouseY + 'px';
-  });
-
-  function animateCursor() {
-    followerX += (mouseX - followerX) * 0.12;
-    followerY += (mouseY - followerY) * 0.12;
-    cursorFollower.style.left = followerX + 'px';
-    cursorFollower.style.top  = followerY + 'px';
-    requestAnimationFrame(animateCursor);
-  }
-  animateCursor();
-
-  document.querySelectorAll('a, button, .filter-tab, .suggestion-tag, .swatch, .carousel-dot').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.transform = 'translate(-50%,-50%) scale(2)';
-      cursorFollower.style.transform = 'translate(-50%,-50%) scale(1.5)';
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-      cursorFollower.style.transform = 'translate(-50%,-50%) scale(1)';
-    });
-  });
-
   /* ── Navbar Scroll Behavior ────────────────────────── */
   const navbar = document.getElementById('navbar');
   let lastScroll = 0;
@@ -289,31 +256,6 @@
   }, { threshold: 0.3 });
   const heroStats = document.querySelector('.hero-stats');
   if (heroStats) heroStatObs.observe(heroStats);
-
-  /* ── Hero Particles ────────────────────────────────── */
-  function createParticles() {
-    const container = document.getElementById('heroParticles');
-    if (!container) return;
-    for (let i = 0; i < 30; i++) {
-      const p = document.createElement('div');
-      p.className = 'particle';
-      const x = Math.random() * 100;
-      const size = Math.random() * 4 + 2;
-      const duration = Math.random() * 8 + 6;
-      const delay = Math.random() * 8;
-      p.style.cssText = `
-        left: ${x}%;
-        bottom: ${Math.random() * 20}%;
-        width: ${size}px;
-        height: ${size}px;
-        animation-duration: ${duration}s;
-        animation-delay: -${delay}s;
-        opacity: ${Math.random() * 0.6 + 0.2};
-      `;
-      container.appendChild(p);
-    }
-  }
-  createParticles();
 
   /* ── Product Filter Tabs ───────────────────────────── */
   const filterTabs = document.querySelectorAll('.filter-tab');
