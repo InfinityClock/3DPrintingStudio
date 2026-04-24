@@ -452,14 +452,18 @@
     btn.addEventListener('click', function () {
       const svg = this.querySelector('svg');
       if (svg.getAttribute('fill') === 'none') {
-        svg.setAttribute('fill', '#FF4D00');
-        svg.setAttribute('stroke', '#FF4D00');
+        svg.setAttribute('fill', 'currentColor');
+        svg.setAttribute('stroke', 'currentColor');
       } else {
         svg.setAttribute('fill', 'none');
         svg.setAttribute('stroke', 'currentColor');
       }
     });
   });
+
+  /* Continue Shopping button in cart */
+  const cartClose2 = document.getElementById('cartClose2');
+  if (cartClose2) cartClose2.addEventListener('click', closeCart);
 
   /* ── Stagger product card animation on load ────────── */
   function staggerCards() {

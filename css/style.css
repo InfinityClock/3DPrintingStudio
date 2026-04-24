@@ -1193,6 +1193,21 @@ ul { list-style: none; }
   border: 1px solid var(--border);
   background: var(--bg-3);
   aspect-ratio: 3 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Placeholder monogram shown when photo is missing */
+.fpf-inner::before {
+  content: 'P';
+  font-family: var(--font-head);
+  font-size: 96px;
+  font-weight: 800;
+  color: var(--border-2);
+  position: absolute;
+  z-index: 0;
+  user-select: none;
 }
 
 .founder-photo {
@@ -1201,11 +1216,18 @@ ul { list-style: none; }
   object-fit: cover;
   object-position: center top;
   display: block;
+  position: relative;
+  z-index: 1;
   image-rendering: crisp-edges;
   image-rendering: -webkit-optimize-contrast;
   transform: translateZ(0);
   backface-visibility: hidden;
   will-change: transform;
+}
+
+/* When image fails to load, hide the broken icon */
+.founder-photo.img-missing {
+  display: none;
 }
 
 .founder-name-tag {
