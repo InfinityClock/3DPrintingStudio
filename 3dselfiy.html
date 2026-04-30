@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3DSelfiy | Miniworks Design Merchandise Pvt. Ltd.</title>
+  <meta name="description" content="India's pioneer 3D selfie studio. Transform yourself into a stunning full-colour miniature figurine. Wedding, corporate and gifting packages." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/3DSelfiyLogo.jpeg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="3DSelfiy | Your Likeness, Captured Forever" />
+  <meta property="og:description" content="India's pioneer 3D selfie studio. 360° body scanning. Full-colour miniature figurines for weddings, corporates and gifting." />
+  <meta property="og:image"       content="assets/3DSelfiyLogo.jpeg" />
+  <meta property="og:url"         content="https://www.3dselfiy.com/" />
+  <meta name="twitter:card"       content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- 3DSelfiy brand overrides -->
+  <style>
+    :root,
+    [data-theme="light"] {
+      --sky:        #E8703A;
+      --sky-dark:   #C95E2A;
+      --sky-light:  #FDF0EA;
+      --sky-inv:    #FFFFFF;
+      --shadow-sky: 0 4px 16px rgba(232,112,58,0.22);
+    }
+    [data-theme="dark"] {
+      --sky:        #F08050;
+      --sky-dark:   #E8703A;
+      --sky-light:  #2A1A10;
+    }
+    /* No filter invert on 3DSelfiy logo — it's a coloured JPEG */
+    .selfiy-logo { filter: none !important; }
+    /* Package card "book" button — reuse btn-add-cart */
+    .btn-add-cart { white-space: nowrap; }
+    /* Wider hero stat numbers for sessions */
+    .footer-sky-bar {
+      background: linear-gradient(90deg, var(--sky) 0%, var(--sky-dark) 100%);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       ANNOUNCEMENT BAR
+  ═══════════════════════════════════════════════ -->
+  <div class="announce-bar">
+    <div class="announce-inner">
+      <span>Book a 3D selfie session — walk-in &amp; pre-book welcome</span>
+      <span class="ab-sep">|</span>
+      <span>Same-day collection available at our studio</span>
+      <span class="ab-sep">|</span>
+      <span>Pan-India delivery on all figurines</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+
+      <a href="3dselfiy.html" class="nav-logo">
+        <img src="assets/3DSelfiyLogo.jpeg" alt="3DSelfiy" class="logo-img selfiy-logo" />
+        <div class="logo-text-block">
+          <span class="logo-name">3DSelfiy</span>
+          <span class="logo-sub">by Miniworks Design</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#" class="nav-link active">Home</a></li>
+        <li class="has-dropdown">
+          <a href="#packages" class="nav-link">Packages <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown">
+            <a href="#" class="dropdown-item">
+              <span class="di-text"><strong>Wedding &amp; Occasions</strong><small>Bride &amp; groom, anniversaries</small></span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <span class="di-text"><strong>Corporate Gifting</strong><small>Team packs, awards, incentives</small></span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <span class="di-text"><strong>Personal Keepsakes</strong><small>Solo, couple, family figurines</small></span>
+            </a>
+            <a href="#" class="dropdown-item">
+              <span class="di-text"><strong>Gift Sets</strong><small>Ready-to-gift, premium packaging</small></span>
+            </a>
+          </div>
+        </li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="nav-icon-btn" id="searchToggle" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="nav-icon-btn" aria-label="Wishlist">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </button>
+        <button class="nav-icon-btn cart-btn" id="cartToggle" aria-label="Cart">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="cart-badge">1</span>
+        </button>
+        <button class="nav-icon-btn theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+          <span class="theme-icon theme-icon-light">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </span>
+          <span class="theme-icon theme-icon-dark">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          </span>
+        </button>
+        <a href="#packages" class="btn-primary btn-sm">Book Now</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Search -->
+    <div class="search-overlay" id="searchOverlay">
+      <div class="search-box">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="text" placeholder="Search packages — wedding, corporate, personal, gift…" class="search-input" id="searchInput" />
+        <button class="search-close" id="searchClose">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Miniworks Design Merchandise Pvt. Ltd.</p>
+        <h1 class="hero-title">Your Likeness,<br />Captured Forever.</h1>
+        <p class="hero-subtitle">India's pioneer 3D selfie studio. Step into our 360° scanner and walk away as a stunning, full-colour miniature figurine — the most personal gift you can give.</p>
+        <div class="hero-actions">
+          <a href="#packages" class="btn-primary">Explore Packages</a>
+          <a href="#how-it-works" class="btn-ghost">How It Works</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-logo-display">
+          <img src="assets/3DSelfiyLogo.jpeg" alt="3DSelfiy" class="hero-logo-large selfiy-logo" />
+        </div>
+        <div class="hero-stats">
+          <div class="hs-item">
+            <span class="hs-num" data-count="8500">0</span><span class="hs-plus">+</span>
+            <span class="hs-label">Figurines Made</span>
+          </div>
+          <div class="hs-divider"></div>
+          <div class="hs-item">
+            <span class="hs-num" data-count="4200">0</span><span class="hs-plus">+</span>
+            <span class="hs-label">Happy Clients</span>
+          </div>
+          <div class="hs-divider"></div>
+          <div class="hs-item">
+            <span class="hs-num" data-count="7">0</span><span class="hs-plus">+</span>
+            <span class="hs-label">Years</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       HOW IT WORKS (replaces categories section)
+  ═══════════════════════════════════════════════ -->
+  <section class="section categories-section reveal-up" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">The Process</p>
+        <h2 class="section-title">From Scan to<br />Miniature in 4 Steps</h2>
+      </div>
+      <div class="categories-grid">
+
+        <div class="cat-card" style="cursor:default;">
+          <div class="cat-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="24" cy="16" r="8"/>
+              <path d="M8 40c0-8.84 7.16-16 16-16s16 7.16 16 16"/>
+              <circle cx="24" cy="24" r="22" stroke-dasharray="6 4" opacity="0.35"/>
+            </svg>
+          </div>
+          <div class="cat-body">
+            <h3 class="cat-name">01 · Step In</h3>
+            <p class="cat-desc">Stand in our 360° scanning booth. The full-body scan takes under 30 seconds.</p>
+            <span class="cat-count">30 Second Scan</span>
+          </div>
+          <div class="cat-arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <div class="cat-card" style="cursor:default;">
+          <div class="cat-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="6" y="10" width="36" height="28" rx="3"/>
+              <circle cx="24" cy="24" r="8"/>
+              <circle cx="24" cy="24" r="3"/>
+              <line x1="6" y1="18" x2="14" y2="18"/>
+              <circle cx="10" cy="14" r="2"/>
+            </svg>
+          </div>
+          <div class="cat-body">
+            <h3 class="cat-name">02 · Capture</h3>
+            <p class="cat-desc">Hundreds of cameras fire simultaneously, capturing every detail in full colour.</p>
+            <span class="cat-count">HD Photogrammetry</span>
+          </div>
+          <div class="cat-arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <div class="cat-card" style="cursor:default;">
+          <div class="cat-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="8" y="22" width="32" height="20" rx="3"/>
+              <rect x="14" y="12" width="20" height="12" rx="2"/>
+              <line x1="8" y1="30" x2="40" y2="30"/>
+              <rect x="19" y="34" width="10" height="3" rx="1"/>
+              <line x1="24" y1="12" x2="24" y2="6"/>
+              <circle cx="24" cy="4" r="2.5"/>
+            </svg>
+          </div>
+          <div class="cat-body">
+            <h3 class="cat-name">03 · Print</h3>
+            <p class="cat-desc">Your 3D model is printed in full-colour binder jetting — layer by layer to the millimetre.</p>
+            <span class="cat-count">Full-Colour 3D Print</span>
+          </div>
+          <div class="cat-arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <div class="cat-card" style="cursor:default;">
+          <div class="cat-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M24 4l4 8 9 1.3-6.5 6.3 1.5 9L24 24l-8 4.6 1.5-9L11 13.3 20 12z"/>
+              <rect x="14" y="36" width="20" height="8" rx="3"/>
+              <line x1="24" y1="30" x2="24" y2="36"/>
+            </svg>
+          </div>
+          <div class="cat-body">
+            <h3 class="cat-name">04 · Collect</h3>
+            <p class="cat-desc">Pick up in-studio or receive delivered to your door, beautifully gift-boxed.</p>
+            <span class="cat-count">Same-Day or Delivery</span>
+          </div>
+          <div class="cat-arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       PACKAGES
+  ═══════════════════════════════════════════════ -->
+  <section class="section products-section reveal-up" id="packages">
+    <div class="container">
+      <div class="section-header section-header-row">
+        <div>
+          <p class="section-eyebrow">Choose Your Package</p>
+          <h2 class="section-title">Find Your Perfect<br />Miniature</h2>
+        </div>
+        <a href="#" class="btn-ghost">View All <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="personal">Personal</button>
+        <button class="filter-tab" data-filter="wedding">Wedding</button>
+        <button class="filter-tab" data-filter="corporate">Corporate</button>
+        <button class="filter-tab" data-filter="gift">Gift</button>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+
+        <!-- P1 · Personal · Solo Mini -->
+        <div class="product-card" data-category="personal">
+          <div class="product-image">
+            <div class="product-art">
+              <svg viewBox="0 0 160 160" fill="none">
+                <circle cx="80" cy="52" r="22" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M40 136c0-22.09 17.91-40 40-40s40 17.91 40 40" stroke="currentColor" stroke-width="1.5"/>
+                <ellipse cx="80" cy="148" rx="28" ry="6" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                <circle cx="80" cy="52" r="10" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+              </svg>
+            </div>
+            <div class="product-actions">
+              <button class="pa-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              <button class="pa-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Personal</span>
+              <div class="product-rating">★★★★★ <span>4.9 (312)</span></div>
+            </div>
+            <h3 class="product-name">Solo Mini</h3>
+            <p class="product-desc">1 person. 15 cm full-colour figurine. Walk-in or book online. Delivered in gift box.</p>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-current">₹2,999</span>
+              </div>
+              <button class="btn-add-cart">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P2 · Personal · Couple Edition -->
+        <div class="product-card" data-category="personal">
+          <div class="product-badge badge-hot">Most Popular</div>
+          <div class="product-image">
+            <div class="product-art">
+              <svg viewBox="0 0 160 160" fill="none">
+                <circle cx="60" cy="50" r="18" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M28 132c0-17.67 14.33-32 32-32s32 14.33 32 32" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="100" cy="50" r="18" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M68 132c0-17.67 14.33-32 32-32s32 14.33 32 32" stroke="currentColor" stroke-width="1.5"/>
+                <ellipse cx="80" cy="148" rx="44" ry="6" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+              </svg>
+            </div>
+            <div class="product-actions">
+              <button class="pa-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              <button class="pa-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Personal</span>
+              <div class="product-rating">★★★★★ <span>5.0 (487)</span></div>
+            </div>
+            <h3 class="product-name">Couple Edition</h3>
+            <p class="product-desc">2 people. Matching 15 cm figurines on a shared base. Perfect anniversary gift.</p>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-current">₹4,999</span>
+                <span class="price-original">₹5,998</span>
+              </div>
+              <button class="btn-add-cart">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P3 · Wedding · Wedding Special -->
+        <div class="product-card" data-category="wedding">
+          <div class="product-badge badge-new">New</div>
+          <div class="product-image">
+            <div class="product-art">
+              <svg viewBox="0 0 160 160" fill="none">
+                <circle cx="65" cy="46" r="16" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M38 120c0-14.91 12.09-27 27-27s27 12.09 27 120" stroke="currentColor" stroke-width="0" fill="none"/>
+                <path d="M38 128c0-14.91 12.09-27 27-27s27 12.09 27 27" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="95" cy="46" r="16" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M68 128c0-14.91 12.09-27 27-27s27 12.09 27 27" stroke="currentColor" stroke-width="1.5"/>
+                <!-- Wedding arch -->
+                <path d="M18 90 Q18 50 50 42" stroke="currentColor" stroke-width="1" opacity="0.4" fill="none"/>
+                <path d="M142 90 Q142 50 110 42" stroke="currentColor" stroke-width="1" opacity="0.4" fill="none"/>
+                <path d="M18 90 Q80 70 142 90" stroke="currentColor" stroke-width="1" opacity="0.3" fill="none"/>
+                <path d="M22 88 Q80 148 138 88" stroke="currentColor" stroke-width="0.8" opacity="0.15" fill="none"/>
+              </svg>
+            </div>
+            <div class="product-actions">
+              <button class="pa-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              <button class="pa-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Wedding</span>
+              <div class="product-rating">★★★★★ <span>4.9 (203)</span></div>
+            </div>
+            <h3 class="product-name">Wedding Special</h3>
+            <p class="product-desc">Bride &amp; groom figurines on a premium display stand. 20 cm. Engraved date &amp; names.</p>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-current">₹9,999</span>
+                <span class="price-original">₹12,500</span>
+              </div>
+              <button class="btn-add-cart">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P4 · Personal · Family Portrait -->
+        <div class="product-card" data-category="personal">
+          <div class="product-image">
+            <div class="product-art">
+              <svg viewBox="0 0 160 160" fill="none">
+                <circle cx="80" cy="38" r="16" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="44" cy="52" r="12" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="116" cy="52" r="12" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="60" cy="68" r="9" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="100" cy="68" r="9" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M54 140c0-14.36 11.64-26 26-26s26 11.64 26 26" stroke="currentColor" stroke-width="1.5"/>
+                <ellipse cx="80" cy="148" rx="48" ry="6" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+              </svg>
+            </div>
+            <div class="product-actions">
+              <button class="pa-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              <button class="pa-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Personal</span>
+              <div class="product-rating">★★★★★ <span>4.8 (156)</span></div>
+            </div>
+            <h3 class="product-name">Family Portrait</h3>
+            <p class="product-desc">Up to 4 people on a shared scenic base. 15 cm figurines. The ultimate family keepsake.</p>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-current">₹7,999</span>
+              </div>
+              <button class="btn-add-cart">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P5 · Corporate · Team Pack -->
+        <div class="product-card" data-category="corporate">
+          <div class="product-badge badge-hot">B2B</div>
+          <div class="product-image">
+            <div class="product-art">
+              <svg viewBox="0 0 160 160" fill="none">
+                <circle cx="80" cy="36" r="14" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="36" cy="60" r="11" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="124" cy="60" r="11" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="58" cy="60" r="11" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="102" cy="60" r="11" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M20 140c0-13.25 10.75-24 24-24s24 10.75 24 24" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M56 140c0-13.25 10.75-24 24-24s24 10.75 24 24" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M92 140c0-13.25 10.75-24 24-24s24 10.75 24 24" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="24" y="142" width="112" height="4" rx="2" fill="currentColor" opacity="0.12"/>
+              </svg>
+            </div>
+            <div class="product-actions">
+              <button class="pa-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              <button class="pa-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Corporate</span>
+              <div class="product-rating">★★★★★ <span>4.9 (88)</span></div>
+            </div>
+            <h3 class="product-name">Corporate Bundle</h3>
+            <p class="product-desc">10 individual figurines. Custom branded base. Ideal for team awards, launches &amp; incentives.</p>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-current">₹24,999</span>
+                <span class="price-original">₹29,990</span>
+              </div>
+              <button class="btn-add-cart">Get Quote</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P6 · Gift · Gift Box Set -->
+        <div class="product-card" data-category="gift">
+          <div class="product-badge badge-sale">−20%</div>
+          <div class="product-image">
+            <div class="product-art">
+              <svg viewBox="0 0 160 160" fill="none">
+                <rect x="28" y="72" width="104" height="72" rx="4" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="20" y="60" width="120" height="16" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                <line x1="80" y1="60" x2="80" y2="144" stroke="currentColor" stroke-width="1.2" opacity="0.4"/>
+                <path d="M80 60 Q60 40 46 44 Q36 48 50 58 Q64 62 80 60Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <path d="M80 60 Q100 40 114 44 Q124 48 110 58 Q96 62 80 60Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <circle cx="80" cy="108" r="14" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="80" cy="100" r="6" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+              </svg>
+            </div>
+            <div class="product-actions">
+              <button class="pa-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              <button class="pa-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Gift</span>
+              <div class="product-rating">★★★★★ <span>4.8 (274)</span></div>
+            </div>
+            <h3 class="product-name">Gift Box Set</h3>
+            <p class="product-desc">Solo figurine in a premium magnetic gift box. Personalised message card included.</p>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-current">₹3,499</span>
+                <span class="price-original">₹4,399</span>
+              </div>
+              <button class="btn-add-cart">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P7 · Gift · Kids Mini -->
+        <div class="product-card" data-category="gift">
+          <div class="product-image">
+            <div class="product-art">
+              <svg viewBox="0 0 160 160" fill="none">
+                <circle cx="80" cy="56" r="20" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M50 140c0-16.57 13.43-30 30-30s30 13.43 30 30" stroke="currentColor" stroke-width="1.5"/>
+                <ellipse cx="80" cy="148" rx="32" ry="6" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                <!-- Stars -->
+                <path d="M26 30 L28 24 L30 30 L36 30 L31 34 L33 40 L28 36 L23 40 L25 34 L20 30Z" stroke="currentColor" stroke-width="1" opacity="0.35" fill="none"/>
+                <path d="M126 28 L128 23 L130 28 L135 28 L131 31.5 L132.5 37 L128 34 L123.5 37 L125 31.5 L121 28Z" stroke="currentColor" stroke-width="1" opacity="0.35" fill="none"/>
+              </svg>
+            </div>
+            <div class="product-actions">
+              <button class="pa-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              <button class="pa-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Gift</span>
+              <div class="product-rating">★★★★★ <span>4.9 (391)</span></div>
+            </div>
+            <h3 class="product-name">Kids Mini</h3>
+            <p class="product-desc">Special session for children under 12. 12 cm figurine. Gift-wrapped. Pure magic.</p>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-current">₹1,999</span>
+              </div>
+              <button class="btn-add-cart">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- P8 · Wedding · Premium Heritage -->
+        <div class="product-card" data-category="wedding">
+          <div class="product-badge badge-new">New</div>
+          <div class="product-image">
+            <div class="product-art">
+              <svg viewBox="0 0 160 160" fill="none">
+                <circle cx="80" cy="46" r="20" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M48 138c0-17.67 14.33-32 32-32s32 14.33 32 32" stroke="currentColor" stroke-width="1.5"/>
+                <rect x="36" y="142" width="88" height="10" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                <!-- Crown -->
+                <path d="M60 24 L66 14 L74 22 L80 10 L86 22 L94 14 L100 24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+                <circle cx="80" cy="46" r="8" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+              </svg>
+            </div>
+            <div class="product-actions">
+              <button class="pa-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></button>
+              <button class="pa-btn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Wedding</span>
+              <div class="product-rating">★★★★★ <span>5.0 (64)</span></div>
+            </div>
+            <h3 class="product-name">Premium Heritage</h3>
+            <p class="product-desc">Single 25 cm large-format figurine on a handcrafted wood plinth. Museum-grade finish.</p>
+            <div class="product-footer">
+              <div class="product-price">
+                <span class="price-current">₹5,999</span>
+              </div>
+              <button class="btn-add-cart">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       PROMO BANNER
+  ═══════════════════════════════════════════════ -->
+  <section class="promo-section" id="collections">
+    <div class="container promo-inner">
+      <div class="promo-left">
+        <p class="section-eyebrow">Limited Time</p>
+        <h2 class="promo-title">Book Two Sessions,<br />Get One Free.</h2>
+        <p class="promo-desc">Gift the most personal keepsake imaginable. Book any two packages together and the third session is on us. Perfect for weddings, family reunions and corporate events.</p>
+        <div class="promo-countdown" id="countdown">
+          <div class="cd-unit"><span class="cd-num" id="cdDays">02</span><span class="cd-label">Days</span></div>
+          <span class="cd-colon">:</span>
+          <div class="cd-unit"><span class="cd-num" id="cdHours">14</span><span class="cd-label">Hours</span></div>
+          <span class="cd-colon">:</span>
+          <div class="cd-unit"><span class="cd-num" id="cdMins">38</span><span class="cd-label">Mins</span></div>
+          <span class="cd-colon">:</span>
+          <div class="cd-unit"><span class="cd-num" id="cdSecs">00</span><span class="cd-label">Secs</span></div>
+        </div>
+        <a href="#packages" class="btn-primary">Book a Session</a>
+      </div>
+      <div class="promo-right">
+        <div class="promo-offer-box">
+          <span class="pob-pct">3rd</span>
+          <span class="pob-off">FREE</span>
+        </div>
+        <ul class="promo-checklist">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Full-Colour Figurine Included</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Premium Gift Box</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Personalised Engraving</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Free Pan-India Delivery</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       TRUST STRIP
+  ═══════════════════════════════════════════════ -->
+  <section class="trust-section">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="5"/><path d="M3 21c0-5 4-9 9-9s9 4 9 9"/></svg>
+        <div><strong>360° Body Scanning</strong><span>Photogrammetry technology</span></div>
+      </div>
+      <div class="trust-item">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div><strong>Full-Colour Print</strong><span>Vivid binder-jet technology</span></div>
+      </div>
+      <div class="trust-item">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div><strong>Pan-India Delivery</strong><span>Safe, padded shipment</span></div>
+      </div>
+      <div class="trust-item">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        <div><strong>Secure Payments</strong><span>UPI, Cards, Net Banking</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       ABOUT — FOUNDER + ECOSYSTEM
+  ═══════════════════════════════════════════════ -->
+  <section class="section about-section reveal-up" id="about">
+    <div class="container">
+
+      <!-- Founder grid -->
+      <div class="founder-grid">
+        <div class="founder-photo-col">
+          <div class="founder-photo-frame">
+            <div class="fpf-inner">
+              <img src="assets/Founder.jpeg" alt="Jagadesh Koteesvaran, Founder and CEO, Miniworks Design Merchandise Pvt. Ltd." class="founder-photo" loading="eager" decoding="sync" onerror="this.classList.add('img-missing')" />
+              <div class="founder-est-badge">Est.<br/>2018</div>
+            </div>
+            <div class="founder-name-tag">
+              <span class="founder-name">Jagadesh Koteesvaran</span>
+              <span class="founder-title">Founder &amp; CEO, Miniworks Design Merchandise Pvt. Ltd.</span>
+            </div>
+          </div>
+          <div class="about-stats-grid">
+            <div class="as-item"><span class="as-num counter-val" data-count="7">0</span><span>+</span><span class="as-label">Years</span></div>
+            <div class="as-item"><span class="as-num counter-val" data-count="3">0</span><span class="as-label">Brands</span></div>
+            <div class="as-item"><span class="as-num counter-val" data-count="4200">0</span><span>+</span><span class="as-label">Clients</span></div>
+            <div class="as-item"><span class="as-num counter-val" data-count="8500">0</span><span>+</span><span class="as-label">Figurines</span></div>
+          </div>
+        </div>
+
+        <div class="founder-story">
+          <p class="section-eyebrow">The Founder's Story</p>
+          <h2 class="section-title">Born From<br />Passion &amp; Precision.</h2>
+          <blockquote class="founder-quote">
+            "I started Miniworks in 2018 with a single FDM printer, a rented garage, and an unshakeable belief that 3D printing would change how India creates, manufactures, and innovates. 3DSelfiy was the moment that belief became something deeply personal."
+          </blockquote>
+          <p class="about-desc">3DSelfiy began as a bold experiment: could we turn every person into a work of art? The answer was yes. Using photogrammetry rigs and full-colour binder-jetting, we capture people in stunning detail and give them something they will treasure for generations.</p>
+          <p class="about-desc">What started as a single scanning booth at a Mumbai pop-up has grown into India's most-loved 3D selfie studio — chosen for weddings, product launches, school events, and corporate milestones across the country.</p>
+          <div class="about-features">
+            <div class="af-row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><div><strong>Studio Quality</strong><span>Professional photogrammetry rig, 200+ cameras.</span></div></div>
+            <div class="af-row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><div><strong>Fast Turnaround</strong><span>Same-day studio pickup. Nationwide delivery in 5 days.</span></div></div>
+            <div class="af-row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.71A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg><div><strong>Dedicated Support</strong><span>Event coordination team for weddings and corporates.</span></div></div>
+          </div>
+          <a href="#packages" class="btn-primary">Book Your Session</a>
+        </div>
+      </div>
+
+      <!-- Ecosystem -->
+      <div class="child-companies">
+        <div class="cc-header">
+          <p class="section-eyebrow">Our Ecosystem</p>
+          <h2 class="section-title">Three Brands. One Vision.</h2>
+          <p class="section-desc">Under Miniworks Design Merchandise Pvt. Ltd., three specialised brands each serve a distinct dimension of India's creator economy.</p>
+        </div>
+
+        <div class="cc-grid">
+
+          <!-- 01 · 3DSelfiy — YOU ARE HERE -->
+          <div class="cc-card cc-card-featured">
+            <div class="cc-card-logo">
+              <span class="cc-index">01</span>
+              <img src="assets/3DSelfiyLogo.jpeg" alt="3DSelfiy" class="cc-brand-logo selfiy-logo" loading="eager" decoding="sync" />
+            </div>
+            <div class="cc-card-body">
+              <div class="cc-you-are-here">You Are Here</div>
+              <p class="cc-category">Consumer · Experience</p>
+              <h3 class="cc-name">3DSelfiy</h3>
+              <p class="cc-desc">India's pioneer 3D selfie studio, transforming people into stunning full-colour miniature figurines. The perfect personalised keepsake or corporate gift.</p>
+              <ul class="cc-features">
+                <li>Full-colour 3D printed figurines</li>
+                <li>360° body scanning technology</li>
+                <li>Wedding, corporate &amp; gifting packages</li>
+              </ul>
+            </div>
+            <a href="#packages" class="cc-cta">Book a Session <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+
+          <!-- 02 · 3D Printing Studio -->
+          <div class="cc-card">
+            <div class="cc-card-logo">
+              <span class="cc-index">02</span>
+              <img src="Logo/Logo.png" alt="3D Printing Studio" class="cc-brand-logo" loading="eager" decoding="sync" />
+            </div>
+            <div class="cc-card-body">
+              <p class="cc-category">eCommerce · B2B &amp; B2C</p>
+              <h3 class="cc-name">3D Printing Studio</h3>
+              <p class="cc-desc">India's premium destination for 3D printing equipment. FDM, Resin, Industrial and Desktop machines for every creator and engineer.</p>
+              <ul class="cc-features">
+                <li>32 printer models, 4 categories</li>
+                <li>Industrial &amp; consumer grade machines</li>
+                <li>Pan-India delivery &amp; tech support</li>
+              </ul>
+            </div>
+            <a href="index.html" class="cc-cta">Visit 3D Printing Studio <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+
+          <!-- 03 · SculptureStore -->
+          <div class="cc-card">
+            <div class="cc-card-logo">
+              <span class="cc-index">03</span>
+              <img src="assets/SSLogo.png" alt="SculptureStore" class="cc-brand-logo" loading="eager" decoding="sync" />
+            </div>
+            <div class="cc-card-body">
+              <p class="cc-category">Art · Architecture · Luxury</p>
+              <h3 class="cc-name">SculptureStore</h3>
+              <p class="cc-desc">Bespoke 3D-printed sculptures, architectural models and art installations. Precision technology meets fine art to create pieces that are profound.</p>
+              <ul class="cc-features">
+                <li>Custom sculpture commissions</li>
+                <li>Architectural scale models</li>
+                <li>Art installations &amp; luxury decor</li>
+              </ul>
+            </div>
+            <a href="#" class="cc-cta">Visit SculptureStore <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       TESTIMONIALS
+  ═══════════════════════════════════════════════ -->
+  <section class="section testimonials-section reveal-up">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Client Reviews</p>
+        <h2 class="section-title">Moments They Will<br />Never Forget</h2>
+      </div>
+      <div class="testimonials-carousel" id="testimonialsCarousel">
+        <div class="testimonials-track" id="testimonialsTrack">
+
+          <div class="tc-card">
+            <div class="tc-stars">★★★★★</div>
+            <p class="tc-text">"We booked 3DSelfiy for our wedding and it was the highlight of the evening. Guests queued for over an hour to get scanned! The figurines arrived beautifully boxed two days later. Every single one was perfect. Absolutely recommend for anyone planning a wedding."</p>
+            <div class="tc-author">
+              <div class="tc-avatar">NP</div>
+              <div><p class="tc-name">Neha &amp; Praveen</p><p class="tc-role">Wedding Couple, Chennai</p></div>
+            </div>
+          </div>
+
+          <div class="tc-card">
+            <div class="tc-stars">★★★★★</div>
+            <p class="tc-text">"We ordered 50 corporate figurines for our annual awards night. The team handled the entire event setup, scanned 50 employees in under 2 hours, and delivered branded display boxes. The recipients were genuinely moved. Best corporate gift we have ever given."</p>
+            <div class="tc-author">
+              <div class="tc-avatar">VR</div>
+              <div><p class="tc-name">Vikram Rao</p><p class="tc-role">HR Director, Bangalore</p></div>
+            </div>
+          </div>
+
+          <div class="tc-card">
+            <div class="tc-stars">★★★★★</div>
+            <p class="tc-text">"Got the Kids Mini package for my daughter's 5th birthday. The look on her face when she saw her tiny self was priceless. The colours are incredibly vivid. The team was so patient and made her feel completely at ease. We are coming back for the whole family next time!"</p>
+            <div class="tc-author">
+              <div class="tc-avatar">SM</div>
+              <div><p class="tc-name">Sunitha Menon</p><p class="tc-role">Parent, Hyderabad</p></div>
+            </div>
+          </div>
+
+          <div class="tc-card">
+            <div class="tc-stars">★★★★★</div>
+            <p class="tc-text">"The Premium Heritage figurine I gifted my parents on their 30th anniversary left them speechless. The detail is extraordinary — you can see the texture of their clothes. It sits in their living room and every visitor asks about it. Worth every rupee and more."</p>
+            <div class="tc-author">
+              <div class="tc-avatar">AK</div>
+              <div><p class="tc-name">Aarav Khanna</p><p class="tc-role">Gift Buyer, Mumbai</p></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="prevBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        </button>
+        <div class="carousel-dots" id="carouselDots">
+          <span class="carousel-dot active"></span>
+          <span class="carousel-dot"></span>
+          <span class="carousel-dot"></span>
+          <span class="carousel-dot"></span>
+        </div>
+        <button class="carousel-btn" id="nextBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       NEWSLETTER
+  ═══════════════════════════════════════════════ -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="nl-inner">
+        <p class="section-eyebrow">Stay Updated</p>
+        <h2 class="section-title">Never Miss a Moment</h2>
+        <p class="section-desc">New packages, studio events and exclusive session offers, delivered to your inbox.</p>
+        <form class="nl-form" id="nlForm">
+          <input type="email" placeholder="Enter your email address" class="nl-input" required />
+          <button type="submit" class="btn-primary">Subscribe</button>
+        </form>
+        <p class="nl-note">No spam. Unsubscribe at any time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════════ -->
+  <footer class="footer" id="contact">
+    <div class="footer-sky-bar"></div>
+    <div class="container">
+
+      <div class="footer-upper">
+
+        <!-- Brand column -->
+        <div class="footer-brand-col">
+          <img src="assets/3DSelfiyLogo.jpeg" alt="3DSelfiy" class="footer-logo selfiy-logo" style="mix-blend-mode:normal;filter:none;" />
+          <p class="footer-tagline">India's pioneer 3D selfie studio. Turning people into stunning full-colour miniature figurines since 2018.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.41 19.1C5.12 19.56 12 19.56 12 19.56s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links grid -->
+        <div class="footer-links-grid">
+
+          <div class="footer-col">
+            <p class="footer-col-title">Company</p>
+            <ul class="footer-links">
+              <li><a href="#" class="footer-link">Home</a></li>
+              <li><a href="#about" class="footer-link">About Us</a></li>
+              <li><a href="#" class="footer-link">Blog</a></li>
+              <li><a href="#" class="footer-link">Careers</a></li>
+              <li><a href="#contact" class="footer-link">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <p class="footer-col-title">Packages</p>
+            <ul class="footer-links">
+              <li><a href="#" class="footer-link">Wedding &amp; Occasions</a></li>
+              <li><a href="#" class="footer-link">Corporate Gifting</a></li>
+              <li><a href="#" class="footer-link">Personal Keepsakes</a></li>
+              <li><a href="#" class="footer-link">Kids Mini</a></li>
+              <li><a href="#" class="footer-link">Gift Box Sets</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <p class="footer-col-title">Support</p>
+            <ul class="footer-links">
+              <li><a href="#" class="footer-link">FAQ</a></li>
+              <li><a href="#" class="footer-link">Booking Policy</a></li>
+              <li><a href="#" class="footer-link">Shipping Info</a></li>
+              <li><a href="#" class="footer-link">Returns</a></li>
+              <li><a href="#" class="footer-link">Track Order</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <p class="footer-col-title">Contact</p>
+            <ul class="footer-contact-list">
+              <li class="footer-contact-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Mumbai, Maharashtra 400001</span>
+              </li>
+              <li class="footer-contact-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.19 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+                <a href="tel:+919876543210">+91 98765 43210</a>
+              </li>
+              <li class="footer-contact-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <a href="mailto:hello@3dselfiy.com">hello@3dselfiy.com</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025–2026 Miniworks Design Merchandise Pvt. Ltd. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Refund Policy</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <span class="cart-title">Your Bookings (1)</span>
+      <button class="cart-close" id="cartClose">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-body">
+      <div class="cart-item">
+        <div class="cart-item-img">
+          <svg width="24" height="24" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="24" cy="16" r="8"/><path d="M8 40c0-8.84 7.16-16 16-16s16 7.16 16 16"/></svg>
+        </div>
+        <div class="cart-item-info">
+          <p class="cart-item-name">Couple Edition</p>
+          <p class="cart-item-price">₹4,999</p>
+        </div>
+        <button class="cart-item-remove">×</button>
+      </div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total"><span>Subtotal</span><span>₹4,999</span></div>
+      <a href="#" class="btn-primary cart-checkout-btn">Confirm Booking</a>
+      <button id="cartClose2" class="cart-continue-btn">Continue Browsing</button>
+    </div>
+  </div>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
